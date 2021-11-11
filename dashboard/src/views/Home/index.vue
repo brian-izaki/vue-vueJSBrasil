@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <custom-header @create-account="handleAcconuntCreate" @login="handleLogin" />
-    <contact />
-    <div class="flex justify-center py-10 bg-brand-gray">
-      <p class="font-medium text-center text-gray-800">Feedbacker &copy; 2021</p>
-    </div>
+  <custom-header @create-account="handleAcconuntCreate" @login="handleLogin" />
+  <contact />
+  <div class="flex justify-center py-10 bg-brand-gray">
+    <p class="font-medium text-center text-gray-800">Feedbacker &copy; 2021</p>
   </div>
 </template>
 

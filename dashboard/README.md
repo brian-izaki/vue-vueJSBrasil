@@ -17,9 +17,22 @@ npm run serve
   - testes unitários (Jest) 
   - E2E (Cypress).
 - animate-css : utilizado para animações na aplicação apenas usando css.
-- tiny-emitter: serve para emitir eventos na aplicação, [ir sessão](/#sobre-vue3)
+- [tiny-emitter](https://github.com/scottcorgan/tiny-emitter#readme): serve para emitir eventos na aplicação, [ir sessão](/#sobre-vue3)
+- [vee-validate](https://vee-validate.logaretm.com/v3): para validação de formulários
 
 ## Anotações
+
+
+
+<details>
+  <summary>Libs externas (dependencias)</summary>
+
+### Vee-validate
+- utilizado no [modal de login](./src/components/ModalLogin/index.vue)
+- na versão mais nova ele possui integração com o Vue 3
+  - é possível utilizar hooks para validação
+
+</details>
 
 <details>
   <summary>Padrões de projeto</summary>
