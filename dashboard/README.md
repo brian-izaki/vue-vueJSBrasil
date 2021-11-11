@@ -19,6 +19,7 @@ npm run serve
 - animate-css : utilizado para animações na aplicação apenas usando css.
 - [tiny-emitter](https://github.com/scottcorgan/tiny-emitter#readme): serve para emitir eventos na aplicação, [ir sessão](/#sobre-vue3)
 - [vee-validate](https://vee-validate.logaretm.com/v3): para validação de formulários
+- [vue-toastification](): para exibição de mensagens toast (possui suporte para vue 3)
 
 ## Anotações
 
@@ -31,6 +32,10 @@ npm run serve
 - utilizado no [modal de login](./src/components/ModalLogin/index.vue)
 - na versão mais nova ele possui integração com o Vue 3
   - é possível utilizar hooks para validação
+
+### vue-toastification
+- utilizado para mostrar mensagens toast na aplicação
+- é necessário configurar ele no nosso [main.js](./src/main.js), adicionando imports do css e do global dele.
 
 </details>
 

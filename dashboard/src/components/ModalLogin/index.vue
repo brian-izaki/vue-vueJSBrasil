@@ -10,7 +10,7 @@
   </div>
 
   <div class="mt-16">
-    <form @submit.prevent="handlerSubmit">
+    <form @submit.prevent="handleSubmit">
       <label class="block">
         <span class="text-lg font-medium text-gray-800">E-mail</span>
         <input
@@ -55,11 +55,16 @@
 import { reactive } from '@vue/reactivity'
 import { useField } from 'vee-validate'
 import useModal from '../../hooks/useModal'
+import { useToast } from 'vue-toastification'
 import { validateEmptyAndLength3, validateEmptyAndEmail } from '../../utils/validators'
+import services from '../../services'
+import { useRouter } from 'vue-router'
 
 export default {
   setup () {
     const modal = useModal()
+    const router = useRouter()
+    const toast = useToast()
 
     // com o hook useField, value passa a representar a model do respectivo input
     const {
@@ -86,11 +91,44 @@ export default {
       }
     })
 
-    function handlerSubmit () {
+    async function handleSubmit () {
+      try {
+        // limpa os toasts anteriores.
+        toast.clear()
+        state.isLoading = true
 
+        const { data, errors } = await services.auth.login({
+          email: state.email.value,
+          password: state.password.value
+        })
+
+        if (!errors) {
+          window.localStorage.setItem('token', data.token)
+          router.push({ name: 'Feedbacks' })
+          modal.close()
+          return
+        }
+
+        if (errors.status === 404) {
+          toast.error('E-mail não encontrado')
+        }
+
+        if (errors.status === 401) {
+          toast.error('E-mail/senha inválidos')
+        }
+
+        if (errors.status === 400) {
+          toast.error('Ocorreu um erro ao fazer o login')
+        }
+      } catch (error) {
+        state.hasErrors = !!error
+        toast.error('Ocorreu um erro ao fazer o login 500')
+      } finally {
+        state.isLoading = false
+      }
     }
 
-    return { state, close: modal.close, handlerSubmit }
+    return { state, close: modal.close, handleSubmit }
   }
 }
 </script>
