@@ -44,7 +44,8 @@
         :class="{'opacity-50': state.isLoading}"
         class="py-3 px-8 mt-10 text-2x1 font-bold text-white bg-brand-main rounded-full focus:outline-none transition-all duration-150"
       >
-        Entrar
+        <icon v-if="state.isLoading" name="loading" class="animate-spin"/>
+        <span v-else>Entrar</span>
       </button>
 
     </form>
@@ -57,10 +58,14 @@ import { useField } from 'vee-validate'
 import useModal from '../../hooks/useModal'
 import { useToast } from 'vue-toastification'
 import { validateEmptyAndLength3, validateEmptyAndEmail } from '../../utils/validators'
+import Icon from '../Icon'
 import services from '../../services'
 import { useRouter } from 'vue-router'
 
 export default {
+  components: {
+    Icon
+  },
   setup () {
     const modal = useModal()
     const router = useRouter()
