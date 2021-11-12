@@ -29,21 +29,24 @@
         width="600px"
         height="50px"
       />
-      <div v-else class="flex py-3 pl-5 w-full lg:w-1/3 mt-2 rounded items-center justify-between bg-brand-gray">
-        <span>{{store.User.currentUser.apiKey}}</span>
+      <div v-else class="flex py-3 pl-5 w-full lg:w-1/2 mt-2 rounded items-center justify-between bg-brand-gray">
+        <span v-if="state.hasError">Erro ao carregar a apikey</span>
+        <span v-else>{{store.User.currentUser.apiKey}}</span>
         <div class="flex ml-20 mr-5">
           <icon
+            @click="handleCopy"
             name="copy"
             :color="brandColors.graydark"
-            size="24"
-            class="cursor-pointer"
+            size="34"
+            class="p-1 rounded cursor-pointer hover:bg-gray-800 hover hover:bg-opacity-5"
           />
 
           <icon
+            @click="handleGenerateApiKey"
             name="loading"
             :color="brandColors.graydark"
-            size="24"
-            class="cursor-pointer ml-3"
+            size="34"
+            class="p-1 rounded cursor-pointer hover:bg-gray-400 hover hover:bg-opacity-5"
           />
         </div>
       </div>
@@ -62,7 +65,8 @@
         v-else
         class="py-3 pl-5 pr-5 mt-2 rounded bg-brand-gray w-full lg:w-2/3 overflow-x-scroll"
       >
-        <pre>&lt;script src="https://brian-izaki-feedbacker-widget.netlify.app?api_key={{store.User.currentUser.apiKey[0]}}"&gt;&lt;/script&gt;</pre>
+        <span v-if="state.hasError">Erro ao carregar o script</span>
+        <pre>&lt;script src="https://brian-izaki-feedbacker-widget.netlify.app?api_key={{store.User.currentUser.apiKey}}"&gt;&lt;/script&gt;</pre>
       </div>
     </div>
   </div>
@@ -75,6 +79,10 @@ import Icon from '../../components/Icon'
 import useStore from '../../hooks/useStore'
 import palette from '../../../palette'
 import { reactive } from '@vue/reactivity'
+import services from '../../services'
+import { setApiKey } from '../../store/user'
+import { watch } from '@vue/runtime-core'
+import { useToast } from 'vue-toastification'
 
 export default {
   components: {
@@ -83,15 +91,53 @@ export default {
     Icon
   },
   setup () {
-    const state = reactive({
-      isLoading: false
-    })
     const store = useStore()
+    const toast = useToast()
+    const state = reactive({
+      isLoading: false,
+      hasError: false
+    })
+
+    function handleError (error) {
+      state.hasError = !!error
+    }
+
+    watch(() => store.User.currentUser, () => {
+      if (!store.Global.isLoading && !store.User.currentUser.apiKey) {
+        handleError(true)
+      }
+    })
+
+    async function handleGenerateApiKey () {
+      try {
+        state.isLoading = true
+
+        const { data } = await services.users.generateApiKey()
+
+        setApiKey(data.apiKey)
+      } catch (error) {
+        handleError(error)
+      } finally {
+        state.isLoading = false
+      }
+    }
+
+    async function handleCopy () {
+      toast.clear()
+      try {
+        await navigator.clipboard.writeText(store.User.currentUser.apiKey)
+        toast.info('Copiado!')
+      } catch (error) {
+        handleError(error)
+      }
+    }
 
     return {
       state,
       store,
-      brandColors: palette.brand
+      brandColors: palette.brand,
+      handleGenerateApiKey,
+      handleCopy
     }
   }
 }
