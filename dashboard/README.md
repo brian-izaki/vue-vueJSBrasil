@@ -61,5 +61,14 @@ npm run serve
 - está sendo utilizado setup ao invés da options API (atributos methods, computed, watch...)
 - não possui mais events, é necessário utiliza lib de terceiros (no projeto utiliza o `tiny-emitter`).
 
+### Suspense
+- utilizada no componenete [Feedbacks](./src/views/Feedbacks/index.vue)
+- contexto: os browsers são single thread, e eles fazem renderização do html, css, handling de JS, tudo nessa mesma thread.
+- a ideia do suspense é fazer o que fala no contexto, de uma maneira que possamos ter maior controle quando muitas atividades estão fazendo ao mesmo tempo. ex: desenhadndo CSS e handling de JS
+- ele tem melhor funcionamento quando a aplicação é muito grande.
+- para utilzar ela
+  - é necessário utilizar a tag `templates` e declarar quem é o `#default` é quem é `#fallback`(seria o loading)
+- utilizando ele, foi possível tornar o setup em uma função assíncrona no componente [Filters](./src/views/Feedbacks/Filters.vue)
+
 </details>
 
