@@ -2,6 +2,8 @@
 Aplicação desenvolvida no curso do vue Brasil.
 
 ## Iniciar projeto
+- **(não é obrigatório)** Utilizado o node na versão 14
+  - caso utilize o nvm, digite o comando `nvm use`
 - estar no diretório dashboard
 ```shell
 # Instalar dependencias
