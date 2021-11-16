@@ -127,7 +127,7 @@ export default {
         }
       } catch (error) {
         state.hasErrors = !!error
-        toast.error('Ocorreu um erro ao fazer o login 500')
+        toast.error('Ocorreu um erro ao fazer o login')
       } finally {
         state.isLoading = false
       }
