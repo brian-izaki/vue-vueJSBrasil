@@ -11,6 +11,9 @@ npm install
 
 # Iniciar projeto em modo Desenvolvimento
 npm run serve
+
+# (a vulso) realizar testes unitários
+npm run test:unit
 ```
 
 ## Dependencias utilizadas
@@ -73,4 +76,32 @@ npm run serve
 - utilizando ele, foi possível tornar o setup em uma função assíncrona no componente [Filters](./src/views/Feedbacks/Filters.vue)
 
 </details>
+
+
+<details>
+  <summary> Testes </summary>
+
+### Testes unitários
+
+- eles estão ficando junto com  o arquivo a ser testado
+- é necessário configurar o arquivo do jest config para que procure pelos arquivos em todo o diretório, pois estamos colocando os arquivos de teste unitário perto do arquivo a ser testado.
+- para realizar os testes utilize o comando `npm run test:unit`
+
+- _"erro dos métodos do jest não serem achados"_, são alertas do eslint, pois os métodos do jest são salvos no node de forma global em momento de execução deles (quando rodar o script do npm run).
+  - para corrigir deve alterar o config do eslint para:
+    ```javascript
+    overrides: [
+      {
+        files: [
+          '**/*.spec.js'
+        ],
+        env: {
+          jest: true
+        }
+      }
+    ]
+    ```
+
+</details>
+
 
