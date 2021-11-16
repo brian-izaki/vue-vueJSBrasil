@@ -49,6 +49,7 @@ const ModalAccountCreate = defineAsyncComponent(() => import('../ModalAccountCre
 const DEFAULT_WIDTH = 'w-3/4 lg:w-1/3'
 
 export default {
+  name: 'ModalFactory',
   components: {
     ModalLogin,
     ModalAccountCreate

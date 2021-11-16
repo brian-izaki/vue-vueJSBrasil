@@ -73,6 +73,7 @@ function applyFiltersStructure (summary) {
 }
 
 export default {
+  name: 'FeedbacksFilters',
   // só dá pra utilizar o async no setup quando utilizar feature do Vue3 que se chama Suspense.
 
   // no setup, o segundo parâmetro é o contexto do componente

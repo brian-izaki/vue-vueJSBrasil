@@ -29,6 +29,7 @@
 import ContentLoader from '../ContentLoader'
 
 export default {
+  name: 'FeedbackCardLoading',
   components: {
     ContentLoader
   }

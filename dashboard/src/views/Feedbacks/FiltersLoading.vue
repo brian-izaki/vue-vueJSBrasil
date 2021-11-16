@@ -34,6 +34,7 @@
 import ContentLoader from '../../components/ContentLoader'
 
 export default {
+  name: 'FeedbacksFiltersLoading',
   components: {
     ContentLoader
   }

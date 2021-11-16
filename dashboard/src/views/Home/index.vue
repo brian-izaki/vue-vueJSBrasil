@@ -14,6 +14,7 @@ import { onMounted } from '@vue/runtime-core'
 import useModal from '../../hooks/useModal'
 
 export default {
+  name: 'Home',
   components: { CustomHeader, Contact },
   setup () {
     const router = useRouter()

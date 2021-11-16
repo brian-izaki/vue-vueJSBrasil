@@ -77,6 +77,7 @@ import services from '../../services'
 import { useRouter } from 'vue-router'
 
 export default {
+  name: 'ModalAccountCreate',
   components: {
     Icon
   },

@@ -37,6 +37,7 @@ import { useRouter } from 'vue-router'
 import useStore from '../../hooks/useStore'
 import { cleanCurrentUser } from '../../store/user'
 export default {
+  name: 'HeaderLogged',
   setup () {
     const router = useRouter()
     const store = useStore('User')

@@ -10,6 +10,7 @@
 <script>
 import { computed } from '@vue/reactivity'
 export default {
+  name: 'FeedbackCardBadge',
   props: {
     type: { type: String, required: true }
   },

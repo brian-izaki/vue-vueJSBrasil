@@ -79,6 +79,7 @@ import services from '../../services'
 import { onErrorCaptured, onMounted, onUnmounted } from '@vue/runtime-core'
 
 export default {
+  name: 'Feedbacks',
   components: {
     Filters,
     FiltersLoading,

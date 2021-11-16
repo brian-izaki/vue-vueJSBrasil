@@ -8,6 +8,7 @@ import Copy from './Copy.vue'
 import ChevronDown from './ChevronDown.vue'
 
 export default {
+  name: 'Icon',
   components: {
     Loading,
     Copy,

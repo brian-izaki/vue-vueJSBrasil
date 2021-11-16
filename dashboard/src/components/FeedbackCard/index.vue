@@ -65,6 +65,7 @@ import { reactive } from '@vue/reactivity'
 import palette from '../../../palette'
 
 export default {
+  name: 'FeedbackCard',
   components: {
     Icon,
     Badge

@@ -85,6 +85,7 @@ import { watch } from '@vue/runtime-core'
 import { useToast } from 'vue-toastification'
 
 export default {
+  name: 'Credencials',
   components: {
     HeaderLogged,
     ContentLoader,

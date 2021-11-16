@@ -15,6 +15,7 @@
 // conhecido como shimmer loading
 import { computed } from '@vue/reactivity'
 export default {
+  name: 'ContactLoader',
   props: {
     maxWidth: {
       default: 100,

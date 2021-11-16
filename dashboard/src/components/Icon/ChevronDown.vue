@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name: 'IconChevronDown',
   props: {
     size: { type: [String, Number], default: 22 },
     color: { type: String, default: 'white' }

@@ -63,6 +63,7 @@ import services from '../../services'
 import { useRouter } from 'vue-router'
 
 export default {
+  name: 'ModalLogin',
   components: {
     Icon
   },
