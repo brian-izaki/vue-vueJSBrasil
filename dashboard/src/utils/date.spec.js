@@ -25,7 +25,7 @@ describe('date utils', () => {
       .toBe(dataDe)
   })
 
-  describe('should give quantity days between 2 days', () => {
+  describe('should give quantity days between days', () => {
     it('with diferent months', () => {
       const dataDe = '2021-10-10 00:00:00'
       const dataAte = new Date('2021-11-10 00:00:00')
@@ -43,7 +43,7 @@ describe('date utils', () => {
     })
   })
 
-  describe('should give quantity hours between 2 hours', () => {
+  describe('should give quantity hours between hours', () => {
     it('with diference of 1 hour', () => {
       const dataDe = '2021-11-10 09:00:00'
       const dataAte = new Date('2021-11-10 10:00:00')
@@ -52,12 +52,48 @@ describe('date utils', () => {
         .toBe('1 hora atrás')
     })
 
-    it('with difference of 2 hours', () => {
+    it('with difference of hours', () => {
       const dataDe = '2021-11-10 09:00:00'
       const dataAte = new Date('2021-11-10 11:00:00')
 
       expect(getDiffTimeBetweenCurrentDate(dataDe, dataAte))
         .toBe('2 horas atrás')
+    })
+  })
+
+  describe('should give quantity minutes between minutes', () => {
+    it('with difference of 10 minutes', () => {
+      const dataDe = '2021-11-10 10:40:00'
+      const dataAte = new Date('2021-11-10 10:50:00')
+
+      expect(getDiffTimeBetweenCurrentDate(dataDe, dataAte))
+        .toBe('10 minutos atrás')
+    })
+
+    it('with diference of 1 minute', () => {
+      const dataDe = '2021-11-10 10:40:00'
+      const dataAte = new Date('2021-11-10 10:41:00')
+
+      expect(getDiffTimeBetweenCurrentDate(dataDe, dataAte))
+        .toBe('1 minuto atrás')
+    })
+  })
+
+  describe('should give seconds between seconds', () => {
+    it('with difference of 10 seconds', () => {
+      const dataDe = '2021-11-10 10:00:10'
+      const dataAte = new Date('2021-11-10 10:00:30')
+
+      expect(getDiffTimeBetweenCurrentDate(dataDe, dataAte))
+        .toBe('20 segundos atrás')
+    })
+
+    it('with diference of 1 second', () => {
+      const dataDe = '2021-11-10 10:00:02'
+      const dataAte = new Date('2021-11-10 10:00:03')
+
+      expect(getDiffTimeBetweenCurrentDate(dataDe, dataAte))
+        .toBe('1 segundo atrás')
     })
   })
 })
