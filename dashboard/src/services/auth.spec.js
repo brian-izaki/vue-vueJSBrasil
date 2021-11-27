@@ -13,6 +13,7 @@ describe('AuthService', () => {
   it('should return a token when user login', async () => {
     const token = '123.123.123'
 
+    // cria um retorno fake
     mockAxios.post.mockImplementationOnce(() => {
       return Promise.resolve({ data: { token } })
     })
