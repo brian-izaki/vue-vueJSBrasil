@@ -102,6 +102,21 @@ npm run test:unit
     ]
     ```
 
+- testes com anotações:
+  - [Home.spec.js](src/views/Home/Home.spec.js)
+  - [auth.spec.js](src/services/auth.spec.js)
+  - [user.spec.js](src/store/user.spec.js)
+  - teste do store: [HeaderLogged.spec.js](src/components/HeaderLogged/HeaderLogged.spec.js)
+
+- vocabulário:
+  - **snapshot**: seria uma "fotografia" do código gerado e compilado pela lib do teste. Ele que é o responsável de poder verificar se o conteudo do html foi alterado ou n.
+
+- comandos utilizados no projeto:
+```shell
+# comando regerar snapshots
+npm run test:unit -- -u
+```
+
 </details>
 
 
