@@ -132,6 +132,36 @@ npm run test:unit -- -u
 
 - utiliza a lib do Cypress
 - estrutura de testes é semelhante ao de testes unitários
+- `cypress run`: o cypress além dos teste também vai **gerar relatórios**
+  - é necessário que o front end a ser testado esteja rodando em outro terminal.
+  - gera: **vídeos**
+
+- comandos: 
+```shell
+# executando cypress no projeto para gerar relatórios (deve utilizar o cifrão)
+$(npm bin)/cypress run
+```
+
+</details>
+
+</details>
+
+<details>
+  <summary> Dica npm </summary>
+
+### Dica npm
+
+- no teste com cypress, posso utilizar diretamente o cypress que tem no `node_modules`. Mas é necessário passar o caminho 
+  corretamente, o npm permite ver o caminho do node_modules basta digitar `npm bin`
+
+- comandos: 
+```shell
+# ver caminho dos binarios no node_modules
+npm bin
+
+# executando uma lib através dos binarios
+$(npm bin)/cypress run
+```
 
 </details>
 
