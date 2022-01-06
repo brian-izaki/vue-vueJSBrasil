@@ -14,6 +14,9 @@ npm run serve
 
 # (a vulso) realizar testes unitários
 npm run test:unit
+
+# realizar testes e2e
+npm run test:e2e
 ```
 
 ## Dependencias utilizadas
@@ -26,9 +29,9 @@ npm run test:unit
 - [vee-validate](https://vee-validate.logaretm.com/v3): para validação de formulários
 - [vue-toastification](): para exibição de mensagens toast (possui suporte para vue 3)
 
+---
+
 ## Anotações
-
-
 
 <details>
   <summary>Libs externas (dependencias)</summary>
@@ -43,6 +46,8 @@ npm run test:unit
 - é necessário configurar ele no nosso [main.js](./src/main.js), adicionando imports do css e do global dele.
 
 </details>
+
+<br />
 
 <details>
   <summary>Padrões de projeto</summary>
@@ -61,7 +66,7 @@ npm run test:unit
 
 
 <details>
-  <summary> <a href="/#sobre-vue3"> Sobre o Vue3 </a> </summary>
+  <summary> Sobre o Vue3 </summary>
 
 - está sendo utilizado setup ao invés da options API (atributos methods, computed, watch...)
 - não possui mais events, é necessário utiliza lib de terceiros (no projeto utiliza o `tiny-emitter`).
@@ -77,11 +82,12 @@ npm run test:unit
 
 </details>
 
+<br />
 
 <details>
-  <summary> Testes </summary>
+  <summary> Testes unitários </summary>
 
-### Testes unitários
+### Testes unitários com Jest
 
 - eles estão ficando junto com  o arquivo a ser testado
 - é necessário configurar o arquivo do jest config para que procure pelos arquivos em todo o diretório, pois estamos colocando os arquivos de teste unitário perto do arquivo a ser testado.
@@ -119,4 +125,20 @@ npm run test:unit -- -u
 
 </details>
 
+<details>
+  <summary> Testes End-to-end </summary>
 
+### Teste com Cypress
+
+- utiliza a lib do Cypress
+- estrutura de testes é semelhante ao de testes unitários
+
+</details>
+
+---
+
+## Referências
+
+- Testes:
+  - [métodos do jest](https://jestjs.io/pt-BR/docs/api)
+  - [métodos do cypress](https://docs.cypress.io/api/table-of-contents)
