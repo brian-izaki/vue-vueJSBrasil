@@ -35,6 +35,7 @@
         <div class="flex ml-20 mr-5">
           <icon
             @click="handleCopy"
+            id="copy-apikey"
             name="copy"
             :color="brandColors.graydark"
             size="34"
@@ -67,7 +68,7 @@
         class="py-3 pl-5 pr-5 mt-2 rounded bg-brand-gray w-full lg:w-2/3 overflow-x-scroll"
       >
         <span v-if="state.hasError">Erro ao carregar o script</span>
-        <pre>&lt;script src="https://brian-izaki-feedbacker-widget.netlify.app?api_key={{store.User.currentUser.apiKey}}"&gt;&lt;/script&gt;</pre>
+        <pre id="script-with-apikey">&lt;script src="https://brian-izaki-feedbacker-widget.netlify.app?api_key={{store.User.currentUser.apiKey}}"&gt;&lt;/script&gt;</pre>
       </div>
     </div>
   </div>
