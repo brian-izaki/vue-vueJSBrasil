@@ -1,0 +1,33 @@
+name: Unit testing
+
+on:
+  # faz o dispatch automático
+  workflow_dispatch:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+defaults:
+  run:
+    # diz que irá rodar os comandos dentro do diretório dashboard
+    working-directory: dashboard
+
+jobs:
+  jest:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # fala a versão do node
+        node-vesion: [14.x]
+
+    # passo a passo do deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run test:unit --if-present

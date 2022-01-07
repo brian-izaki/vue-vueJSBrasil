@@ -12,12 +12,16 @@ npm install
 # Iniciar projeto em modo Desenvolvimento
 npm run serve
 
-# (a vulso) realizar testes unitários
+## COMANDO PARA TESTES
+# unitários
 npm run test:unit
 
-# realizar testes e2e
+# testes e2e
 npm run test:e2e
 ```
+- Aplicação estará rodando em: http://localhost:8080/
+
+---
 
 ## Dependencias utilizadas
 - criado aplicação com a CLI do vue
@@ -162,6 +166,17 @@ npm bin
 # executando uma lib através dos binarios
 $(npm bin)/cypress run
 ```
+
+</details>
+
+
+<details>
+  <summary> CI </summary>
+
+### CI (Continous Integration) com o github
+
+- foi criado no diretório raiz o diretório `.github/workflow` com arquivos `.yml` para realizar as ações com o github actions
+- nos arquivos `.yml` são feitos os `steps`(passos) que o CI irá fazer pra realizar os testes.
 
 </details>
 
