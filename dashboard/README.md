@@ -1,6 +1,8 @@
 # Dashboard Layout Front-end principal
 Aplicação desenvolvida no curso do vue Brasil.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f0af836-7665-4935-9c85-b5447380fd71/deploy-status)](https://app.netlify.com/sites/brian-izaki-feedbacker-dashboard/deploys)
+
 ## Iniciar projeto
 - **(não é obrigatório)** Utilizado o node na versão 14
   - caso utilize o nvm, digite o comando `nvm use`

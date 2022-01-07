@@ -1,5 +1,7 @@
 # Estudos sobre Vue.js 3
 
+site do dashboard <br /> [![Netlify Status](https://api.netlify.com/api/v1/badges/2f0af836-7665-4935-9c85-b5447380fd71/deploy-status)](https://app.netlify.com/sites/brian-izaki-feedbacker-dashboard/deploys)
+
 ## Setup
 - Node.js instalado
 - docker instalado (ele é necssário para o backend)
