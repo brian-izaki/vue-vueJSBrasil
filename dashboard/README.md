@@ -180,6 +180,31 @@ $(npm bin)/cypress run
 
 </details>
 
+
+<details>
+  <summary> Deploy do front end </summary>
+
+### build
+- caso **tailwind**
+  - o build ficará muito grande caso não use o `purge`. Para evitar isso, é necessário passar no `tailwind.config.js` dentro de `purge` os arquivos que tem css e no build será colocado
+    apenas as classes utilizadas no arquivo
+  - **_obs_**: classes que forem passadas usando template string não são lidas pelo tailwind e isso **resulta na remoção delas durante o build**.
+    ```js
+    // errado
+    color = 'blue'    
+    <div :class="`bg-${color}`"></div>
+    
+    // certo
+    color2 = 'bg-color'
+    <div :class="color2"></div>
+    ```
+
+### redirects
+- o comportamento de SPA no vue utiliza o `#` para redirecionamentos
+  - como nesse projeto utiliza o webHistory evitando o `#` é necessário criar o arquivo `public/_redirects` para evitar o `404`
+
+</details>
+
 ---
 
 ## Referências
