@@ -35,7 +35,7 @@
 
       </div>
 
-      <div class="px-10 pt-20 col-span-3">
+      <div id="main-feedbacks-list" class="px-10 pt-20 col-span-3">
         <p
           v-if="state.hasError"
           class="text-lg text-center text-gray-800 font-regular"
