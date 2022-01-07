@@ -205,6 +205,22 @@ $(npm bin)/cypress run
 - o comportamento de SPA no vue utiliza o `#` para redirecionamentos
   - como nesse projeto utiliza o webHistory evitando o `#` é necessário criar o arquivo `public/_redirects` para evitar o `404`
 
+### Docker file
+- tem o objetivo de compilar uma imagem docker pra q fique mais fácil no momento de subir na cloud
+
+- foi feito 2 processos para o dockerfile, (multi staging builds)
+  - 1 pro build da aplicação
+  - 2 pra subir o nginx
+  - Os processos foram feitos para que no nginx não precise realizar o build com node_modules novamente e **ter apenas o dist** dentro do nginx.
+
+- após criar o dockerfile, foi feito build com docker para gerar uma imagem do front-end
+  ```shell
+  docker build -t feedbacker-dashboard .
+  
+  ## ver o build do nginx (80 é a porta padrão do ngnix)
+  # a aplicação irá roda em http://localhost:80
+  docker run -p 80:80 feedbacker-dashboard
+  ```
 </details>
 
 ---
